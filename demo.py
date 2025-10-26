@@ -5,8 +5,11 @@ Demonstrates key features and capabilities
 """
 
 import sys
-import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from pathlib import Path
+
+# Add project root to Python path
+project_root = Path(__file__).parent
+sys.path.insert(0, str(project_root))
 
 from src.ai_model import DynamicPricingModel
 from src.data_pipeline import DataPipeline
