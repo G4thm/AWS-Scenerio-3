@@ -1,0 +1,61 @@
+# Configuration file for AWS Scenario 3
+
+# AWS Configuration
+aws:
+  region: us-east-1
+  profile: default
+
+# Data Lake Configuration
+data_lake:
+  bucket_name: dynamic-pricing-data-lake
+  region: us-east-1
+  encryption: AES256
+  versioning: true
+
+# Glue Configuration
+glue:
+  database_name: pricing_analytics
+  table_name: pricing_data
+  crawler_schedule: cron(0 1 * * ? *)
+
+# AI Model Configuration
+ai_model:
+  model_path: models/pricing_model.pkl
+  algorithm: RandomForest
+  n_estimators: 100
+  max_depth: 10
+  retrain_frequency: weekly
+
+# Data Pipeline Configuration
+pipeline:
+  batch_size: 1000
+  processing_interval: hourly
+  data_retention_days: 365
+
+# Security Configuration
+security:
+  encryption_at_rest: true
+  encryption_in_transit: true
+  mfa_required: true
+  audit_logging: true
+
+# Analytics Configuration
+analytics:
+  reporting_frequency: daily
+  visualization_types:
+    - line_chart
+    - heatmap
+    - histogram
+    - scatter_plot
+  
+# Monitoring Configuration
+monitoring:
+  cloudwatch_enabled: true
+  metrics_retention_days: 90
+  alarm_email: admin@example.com
+
+# API Configuration
+api:
+  rate_limit: 1000
+  timeout_seconds: 30
+  authentication: api_key
